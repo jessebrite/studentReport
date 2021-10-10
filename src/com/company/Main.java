@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -34,7 +35,14 @@ public class Main {
 		grades4.add(90.4);
 		grades4.add(87.1);
 		grades4.add(90.7);
-		NaughtyStudent student4 = new NaughtyStudent("4", "Anas Aremeyaw", grades4, Level.ONE);
+		NaughtyStudent student4 = new NaughtyStudent("4", "Cynthia Ashong", grades4, Level.ONE);
+
+		List<Double> grades5 = new ArrayList<>();
+		grades5.add(90.2);
+		grades5.add(96.4);
+		grades5.add(99.1);
+		grades5.add(96.3);
+		Student student5 = new Student("5", "Axolu Etornam", grades5, Level.TWO);
 
 //		System.out.println(student4);
 //		System.out.println(student4.increaseAverageGrade());
@@ -46,7 +54,10 @@ public class Main {
 		students.add(student2);
 		students.add(student3);
 		students.add(student4);
+		students.add(student5);
 //		System.out.println(students);
+
+		Bag<Student> stu = new Bag();
 
 		List<Double> averageGrades = new ArrayList<>();
 
@@ -55,10 +66,21 @@ public class Main {
 //        System.out.println(lecture);
 //		System.out.println("The highest number: " + lecture.getHighestAverageGrade(students));
 
+		List<String> studentNames = new ArrayList<>();
+		studentNames.add("Anas Aremeyaw");
+//		studentNames.add("Amos Nsiah");
+//		studentNames.add("Cynthia Ashong");
 
 		Register register = new Register(students);
-//		register.getRegister(students);
-//		register.getRegisterByLevel(students, Level.ONE);
 		register.printReport(students);
+		register.sort(students);
+		System.out.println("After sorting.....\n");
+//		register.printReport(students);
+//		System.out.println(student1.getLevel());
+//		System.out.println(register.getRegister(students));
+//		System.out.println(register.getRegisterByLevel(students, Level.ONE));
+//		register.printReport(students);
+//		System.out.println(register.getStudentByName(students, "Anas Aremeyaw"));
+//		System.out.println(register.getStudentsByName(students, studentNames));
 	}
 }

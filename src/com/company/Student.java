@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.List;
 
-public class Student implements Nameable {
+public class Student implements Nameable, HasLevel {
     private final String id;
     private final String name;
     private final List<Double> grades;
@@ -15,17 +15,9 @@ public class Student implements Nameable {
         this.level = level;
     }
 
-    public Level getLevel() {
-        return level;
-    }
-
     public Double getAverageGrade() {
     	return (grades.stream().reduce(0.0, Double::sum)) / grades.size();
-//        double sum = 0;
-//        for (double grade : grades) {
-//            sum += grade;
-//        }
-//        return sum / grades.size();
+//
     }
 
     @Override
@@ -38,5 +30,10 @@ public class Student implements Nameable {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Level getLevel() {
+        return level;
     }
 }

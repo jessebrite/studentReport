@@ -1,7 +1,7 @@
 package com.company;
 
 public interface HasLevel {
-	String getLevel();
+	Level getLevel();
 }
 
-enum Level { 	ONE, TWO, THREE }
+enum Level { ONE, TWO, THREE }
