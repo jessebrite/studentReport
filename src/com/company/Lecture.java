@@ -1,40 +1,35 @@
 package com.company;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Lecture {
-    private final String id;
-    private final List<Double> averageGrades;
+	private final String id;
+	private final List<Double> averageGrades;
 
-    public Lecture(String id, List<Double> averageGrades) {
-        this.id = id;
-        this.averageGrades = averageGrades;
-    }
+	public Lecture(String id, List<Double> averageGrades) {
+		this.id = id;
+		this.averageGrades = averageGrades;
+	}
 
 
-    public Double enter (Student student) {
-        return student.getAverageGrade();
-    }
+	public Double enter(Student student) {
+		return student.getAverageGrade();
+	}
 
-    public double getHighestAverageGrade(double[] params) {
-        double highest = 0;
-        for ( double param : params) {
-            if (param > highest)
-                highest = param;
-        }
-//        for (int i = 0; i < averageGrades.size(); i++) {
-//            if (i > highest) {
-//                highest = i;
-//            }
-//        }
-        return highest;
-    }
+	public Double getHighestAverageGrade(List<Student> students) {
+		Optional<Student> highest = students
+			.stream()
+			.max(Comparator.comparing(Student::getAverageGrade));
+		return highest.get().getAverageGrade();
+	}
 
-    @Override
-    public String toString() {
-        return "Lecture{" +
-                "id='" + id + '\'' +
-                ", averageGrades=" + averageGrades +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Lecture{" +
+			"id='" + id + '\'' +
+			", averageGrades=" + averageGrades +
+			'}';
+	}
 }

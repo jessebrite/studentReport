@@ -5,32 +5,60 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-        List<Double> grades1 = new ArrayList<>();
-        grades1.add(90.7);
-        grades1.add(91.4);
-        grades1.add(80.1);
-        grades1.add(97.7);
-        Student student1 = new Student("1", "James", grades1);
+	public static void main(String[] args) {
+		List<Double> grades1 = new ArrayList<>();
+		grades1.add(95.7);
+		grades1.add(96.4);
+		grades1.add(99.1);
+		grades1.add(88.7);
+		Student student1 = new Student("1", "Grace Omaabo", grades1, Level.TWO);
+//		System.out.println(student3);
 
-        List<Double> grades2 = new ArrayList<>();
-        grades2.add(88.7);
-        grades2.add(87.4);
-        grades2.add(80.1);
-        grades2.add(44.7);
-        Student student2 = new Student("2", "John", grades2);
+		List<Double> grades2 = new ArrayList<>();
+		grades2.add(84.1);
+		grades2.add(94.4);
+		grades2.add(87.1);
+		grades2.add(93.2);
+		NaughtyStudent student2 = new NaughtyStudent("2", "Anas Aremeyaw", grades2, Level.ONE);
 
+		List<Double> grades3 = new ArrayList<>();
+		grades3.add(94.7);
+		grades3.add(93.4);
+		grades3.add(89.1);
+		grades3.add(98.7);
+		Student student3 = new Student("3", "Amos Nsiah", grades3, Level.ONE);
+//		System.out.println(student3);
+
+		List<Double> grades4 = new ArrayList<>();
+		grades4.add(84.7);
+		grades4.add(90.4);
+		grades4.add(87.1);
+		grades4.add(90.7);
+		NaughtyStudent student4 = new NaughtyStudent("4", "Anas Aremeyaw", grades4, Level.ONE);
+
+//		System.out.println(student4);
+//		System.out.println(student4.increaseAverageGrade());
+//		System.out.println(student4.getAverageGrade());
 //        System.out.println(student1.getAverageGrade());
 
-        List<Double> averageGrades = new ArrayList<>();
-        averageGrades.add(student1.getAverageGrade());
-        averageGrades.add(student2.getAverageGrade());
+		List<Nameable> students = new ArrayList<>();
+		students.add(student1);
+		students.add(student2);
+		students.add(student3);
+		students.add(student4);
+//		System.out.println(students);
 
-        Lecture lecture = new Lecture("12", averageGrades);
-        System.out.println(student1);
-        System.out.println(student2);
+		List<Double> averageGrades = new ArrayList<>();
+
+		Lecture lecture = new Lecture("12", averageGrades);
 //        System.out.println(lecture.enter(student1));
-        System.out.println(lecture);
-//        System.out.println("The highest number: " + lecture.getHighestAverageGrade());
-    }
+//        System.out.println(lecture);
+//		System.out.println("The highest number: " + lecture.getHighestAverageGrade(students));
+
+
+		Register register = new Register(students);
+//		register.getRegister(students);
+//		register.getRegisterByLevel(students, Level.ONE);
+		register.printReport(students);
+	}
 }
