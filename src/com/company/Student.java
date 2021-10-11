@@ -3,10 +3,10 @@ package com.company;
 import java.util.List;
 
 public class Student implements Nameable, HasLevel {
-    private final String id;
-    private final String name;
-    private final List<Double> grades;
-    private final Level level;
+    private String id;
+    private String name;
+    private List<Double> grades;
+    private Level level;
 
     public Student(String id, String name, List<Double> grades, Level level) {
         this.id = id;
@@ -16,8 +16,7 @@ public class Student implements Nameable, HasLevel {
     }
 
     public Double getAverageGrade() {
-    	return (grades.stream().reduce(0.0, Double::sum)) / grades.size();
-//
+    	return grades.stream().reduce(0.0, Double::sum) / grades.size();
     }
 
     @Override

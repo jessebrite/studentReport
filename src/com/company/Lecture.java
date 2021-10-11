@@ -13,7 +13,6 @@ public class Lecture {
 		this.averageGrades = averageGrades;
 	}
 
-
 	public Double enter(Student student) {
 		return student.getAverageGrade();
 	}

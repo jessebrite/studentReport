@@ -32,7 +32,6 @@ public class Register {
 //    }
 
     public Optional<Nameable> getStudentByName(List<Nameable> nameable, String name) {
-        // TODO: find a way of adding orElse to return empty string if empty
         return nameable.stream().filter(x -> x.getName().equals(name)).findFirst();
     }
 
